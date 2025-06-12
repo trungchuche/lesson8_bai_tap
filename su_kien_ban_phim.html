@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện bàn phím</title>
+</head>
+<body onload="docReady()">
+<!--b1 chèn ảnh nobita-->
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" style="position:absolute;left:0; top:0;" height="100" width="80" alt="đây là ảnh NOBITA">
+<script>
+  //xây dụng các hàm sử lý khi nhấn phím lên
+  function unArrowPressed(){
+    let element = document.getElementById('nobita');
+    element.style.top = parseInt(element.style.top) - 5 + 'px';
+  }
+  // xây dụng các hàm sử lý khi nhấn phím xuống
+  function downArrowPressed(){
+    let element = document.getElementById('nobita');
+    element.style.top = parseInt(element.style.top) + 5 + 'px';
+  }
+  //xây dụng các hàm khi nhấn phím sang trái
+  function leftArrowPressed() {
+    let element = document.getElementById('nobita');
+    element.style.left = (parseInt(element.style.left) || 0) - 5 + 'px';
+  }
+
+  function rightArrowPressed() {
+    let element = document.getElementById('nobita');
+    element.style.left = (parseInt(element.style.left) || 0) + 5 + 'px';
+  }
+  // xây dụng các hàm nhận dạng các phím
+  function moveSelection(evt){
+    switch(evt.keyCode){
+      case 37:
+        leftArrowPressed();
+        break;
+      case 39:
+        rightArrowPressed();
+        break;
+      case 38:
+        unArrowPressed();
+        break;
+      case 40:
+        downArrowPressed();
+        break;
+    }
+  }
+  // xây dụng hàm doReady()
+  function docReady(){
+    window.addEventListener('keydown',moveSelection);
+  }
+</script>
+</body>
+</html>

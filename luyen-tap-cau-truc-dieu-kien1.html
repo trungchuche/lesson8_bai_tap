@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện1</title>
+</head>
+<body>
+<h2>Luyện tập sử dụng cấu lệnh if...else, và if lồng nhau. </h2>
+<p>bài1: nhập 2 số a và b kiểm tra xem có chia hết cho b không.</p>
+<label><input type="number" value="soA" id="soA" placeholder="mời nhập số a"></label>
+<label><input type="number" value="soB" id="soB" placeholder="mời nhấp số b"></label>
+<button type="button" onclick="tinhTong()">Enter</button>
+<p id="result"></p>
+<script>
+  function tinhTong(){
+    let tong = parseInt(document.getElementById('soA').value);
+    let hieu = parseInt(document.getElementById('soB').value);
+    let T2s= tong % hieu;
+      if (T2s === 0){
+        document.getElementById('result').innerHTML="Số a chia hết cho b"
+      }else
+        document.getElementById('result').innerHTML="Số a không chia hết cho b"
+  }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 2:Nhập tuổi, kiểm tra và in kết quả xem học sinh có đủ điều kiện vào học lớp 10 hay không.</p>
+<label><input type="number" id="nhapTuoi" placeholder="Mời nhập tuổi"></label>
+<button onclick="kiemTra()">Kiểm tra</button>
+<p id="result1"></p>
+<script>
+  function kiemTra(){
+    let tuoi = document.getElementById('nhapTuoi').value;
+    if (tuoi === 16){
+      document.getElementById('result1').innerHTML=("Bạn đủ tuổi nhập học")
+    }else
+      document.getElementById('result1').innerHTML=("Bạn không đủ tuổi nhập học")
+  }
+</script>
+<br>
+<br>
+<br>
+<p>bài 3: Nhập một số nguyên bất kỳ, in ra kết quả để xác định số đó lớn hơn, nhỏ hơn hay bằng 0.</p>
+<label><input type="number" id="soN" placeholder="Mời nhập số"></label>
+<button onclick="kiemTra1()">kiểm tra</button>
+<p id="result2"></p>
+<script>
+  function kiemTra1(){
+    let soNguyen = parseInt(document.getElementById('soN').value);
+    if (soNguyen > 0){
+      document.getElementById('result2').innerHTML = soNguyen + " lớn hơn 0";
+    }else if(soNguyen < 0){
+      document.getElementById('result2').innerHTML = soNguyen + " bé hơn 0";
+    }else {
+      document.getElementById('result2').innerHTML = soNguyen + " bằng 0";
+    }
+  }
+</script>
+<br>
+<br>
+<br>
+<p>bài 4: Nhập 3 số nguyên, tìm và in ra giá trị lớn nhất trong ba số đó.</p>
+<label><input type="number" id="N1" placeholder="Mời nhập số a"></label>
+<label><input type="number" id="N2" placeholder="Mời nhập số b"></label>
+<label><input type="number" id="N3" placeholder="Mời nhập số c"></label>
+<button onclick="kiemtra3()">Kiểm tra</button>
+<p id="result3"></p>
+<script>
+  function kiemtra3(){
+    let Na1 = parseInt(document.getElementById('N1').value);
+    let Nb2 = parseInt(document.getElementById('N2').value);
+    let Nc3 = parseInt(document.getElementById('N3').value);
+    if (Na1 >= Nb2){
+      if (Na1 >= Nc3){
+        document.getElementById('result3').innerHTML = Na1 + " là số lớn nhất"
+      }else{
+        document.getElementById('result3').innerHTML = Nc3 + " là số lớn nhất"
+      }
+    }else{
+      if (Nb2 >= Nc3){
+          document.getElementById('result3').innerHTML = Nb2 + " là số lớn nhất"
+      }else{
+        document.getElementById('result3').innerHTML = Nc3 + " là số lớn nhất"
+      }
+    }
+  }
+</script>
+<br>
+<br>
+<br>
+<pre>Bài 5:
+Xếp loại học lực của học sinh dựa trên:
+
+Điểm bài kiểm tra.
+Điểm thi giữa kỳ.
+Điểm thi cuối kỳ.
+</pre>
+<label><input type="number" id="KT" placeholder="nhập điểm kiểm tra"></label>
+<label><input type="number" id="GK" placeholder="nhập điểm giữa kỳ"></label>
+<label><input type="number" id="CK" placeholder="nhập điểm cuối kỳ"></label>
+<button onclick="kiemTra4()">Kiểm tra</button>
+<p id="result5"></p>
+<script>
+  function kiemTra4(){
+    let kt = parseInt(document.getElementById('KT').value);
+    let gk = parseInt(document.getElementById('GK').value);
+    let ck = parseInt(document.getElementById('CK').value);
+    let tongDiem = (kt + 2 * gk + 3 * ck)/6;
+    if (tongDiem >= 8 && tongDiem <=10){
+      document.getElementById('result5').innerHTML = "Điểm của bạn là: "+tongDiem+" bạn xếp học lực giỏi";
+    }else if (tongDiem >= 6.5 && tongDiem < 8){
+      document.getElementById('result5').innerHTML=  "Điểm của bạn là: "+tongDiem+" bạn xếp học lực khá";
+    }else if (tongDiem < 6.5 && tongDiem > 3){
+      document.getElementById('result5').innerHTML=  "Điểm của bạn là: "+tongDiem+" bạn xếp học lực yếu";
+    }else if(kt > 10 && gk > 10 && ck >10){
+      document.getElementById('result5').innerHTML= "Hãy nhập lại đúng số điểm"
+    }else{
+      document.getElementById('result5').innerHTML=  "Bạn cần thi lại";
+    }
+  }
+</script>
+<br>
+<br>
+<br>
+<pre>Bài 6:
+Tính hoa hồng nhận được dựa trên mức doanh số bán hàng.</pre>
+<label><input type="number" id="Dt" placeholder="Nhập số tiền"></label>
+<button onclick="kiemtr5()">Tính lãi</button>
+<p id="result6"></p>
+<script>
+  function kiemtr5(){
+    let Dt = parseInt(document.getElementById('Dt').value);
+    if (Dt < 3000000){
+        let hh = 0.03 * Dt
+        document.getElementById('result6').innerHTML = "Số hoa hồng bạn nhận được là" + hh
+    }else if(Dt > 5000000){
+        let hhh = 0.05 * Dt
+          document.getElementById('result6').innerHTML = "Số hoa hồng bạn nhận được là" + hhh
+    }else if (Dt > 100000000){
+        let hhhh = 0.10 * Dt
+        document.getElementById('result6').innerHTML= "Số hoa hồng bạn nhận được là" + hhhh
+    }
+  }
+</script>
+<br>
+<br>
+<br>
+<pre>Bài 7:
+Tính cước điện thoại cho một hộ gia đình dựa trên các thông số được cung cấp</pre>
+<label><select id="mang">
+  <option value="viettel">VIETTEL</option>
+  <option value="vinaphone">VINAPHONE</option>
+  <option value="mobiphone">MOBIPHONE</option>
+</select></label><br>
+<label><input type="number" id="sPnM" placeholder="Phút gọi nội mạng"></label><br>
+<label><input type="number" id="sPnM2" placeholder="Phút gọi ngoại mạng"></label><br>
+<button onclick="kiemTra6()">Kiểm tra số tiền phải trả</button>
+<p id="result7"></p><p id="result8"></p>
+<script>
+  function kiemTra6(){
+    let mang = document.getElementById('mang').value;
+    let pgnm = parseFloat(document.getElementById('sPnM').value);
+    let pgnm2 = parseFloat(document.getElementById('sPnM2').value);
+    let cuocPhivt = pgnm * 1100;
+    let cuocPhivt2 = pgnm2 * 1500;
+    let cuocPhivn = pgnm * 2000;
+    let cuocPhivn2 = pgnm2 * 2500;
+    let cuocPhimb = pgnm * 3000;
+    let cuocPhimb2 = pgnm * 3500;
+
+    if (mang === 'viettel') {
+      document.getElementById('result7').innerHTML = "Bạn phải trả nội mạng là: " + cuocPhivt + "VNĐ";
+      document.getElementById('result8').innerHTML = "Bạn phải trả ngoại mạng là: " + cuocPhivt2 + "VNĐ";
+    }else if(mang === 'vinaphone') {
+      document.getElementById('result7').innerHTML = "Bạn phải trả nội mạng là: " + cuocPhivn + "VNĐ";
+      document.getElementById('result8').innerHTML = "Bạn phải trả ngoại mạng là: " + cuocPhivn2 + "VNĐ";
+    }else if(mang === 'mobiphone') {
+      document.getElementById('result7').innerHTML = "Bạn phải trả nội mạng là: " + cuocPhimb + "VNĐ";
+      document.getElementById('result8').innerHTML = "Bạn phải trả ngoại mạng là: " + cuocPhimb2 + "VNĐ";
+    }
+  }
+</script>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

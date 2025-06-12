@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện 2</title>
+</head>
+<body>
+<h2>luyện tập cấu trúc điều kiện 2</h2>
+<pre>Bài 1: Chuyển từ độ C sang độ F.
+
+°C  x  9/5 + 32 = °F</pre>
+<label><input type="number" id="nhietDo" placeholder="Hãy nhập *C vô"></label>
+<button onclick="kiemTra1()">Tính toán</button>
+<p id="result1"></p>
+<script>
+    function kiemTra1() {
+        let nD = parseInt(document.getElementById("nhietDo").value);
+        let t1 = (nD * 9/5) + 32;
+        if (t1 <= 100){
+            document.getElementById('result1').innerHTML = "Nhiệt độ" + t1 +" chưa đủ WOW";
+        }else{
+            document.getElementById('result1').innerHTML = "Nhiệt độ" +t1 + "đủ WOW rồi đấy"
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<pre>Bài 2: Chuyển từ mét sang feet:
+
+ft =m * 3.2808
+</pre>
+<label><input type="number" id="mEt" placeholder="Mời nhập M"></label>
+<button onclick="kiemTra2()">Tính toán</button>
+<p id="result2"></p>
+<script>
+    function kiemTra2() {
+        let met = parseInt(document.getElementById("mEt").value);
+        let ft = met * 3.2808;
+        if (ft >= 100) {
+            document.getElementById('result2').innerHTML="đủ WOW rồi đấy = " + ft ;
+        }else if (ft <= 100){
+            document.getElementById('result2').innerHTML="đủ WOW rồi đấy = " + ft ;
+        }else if (ft === 0){
+            document.getElementById('result2').innerHTML="Mời nhập lại"
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</p>
+<label><input type="number" id="canh" placeholder="nhập cạnh a vô đey"></label>
+<button onclick="kiemTra3()">Tính toán</button>
+<p id="result3"></p>
+<script>
+    function kiemTra3() {
+        let canhA = parseInt(document.getElementById("canh").value);
+        if (canhA <= 0 || isNaN(canhA)) {
+            document.getElementById('result3').innerHTML="Nhập lại cạnh lớn hơn 0";
+        }else{
+            let a = canhA * canhA;
+            document.getElementById('result3').innerHTML = "Độ dài cạnh = " + a;
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b</p>
+<label><input type="number" id="chieudai" placeholder="Nhập cạnh a"></label>
+<label><input type="number" id="chieurong" placeholder="Nhập cạnh b"></label>
+<button onclick="kiemtra4()">Tính toán</button>
+<p id="result4"></p>
+<script>
+    function kiemtra4() {
+        let cd = parseInt(document.getElementById("chieudai").value);
+        let cr = parseInt(document.getElementById("chieurong").value);
+        if (cr === 0 || isNaN(cd)) {
+            document.getElementById('result4').innerHTML = ("Nhập chiều dài cạnh a hoặc b lớn hơn 0")
+        }else if (cd === 0 || isNaN(cd)) {
+            document.getElementById('result4').innerHTML = ("Nhập chiều dài cạnh a hoặc b lớn hơn 0")
+        }else{
+            let dientich= cd * cr;
+            document.getElementById('result4').innerHTML = "diện tích là : "+dientich;
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</p>
+<label><input type="number" id="canha" placeholder="Nhập cạnh a"></label>
+<label><input type="number" id="canhb" placeholder="Nhập cạnh b"></label>
+<button onclick="kiemtra5()">Kiểm tra</button>
+<p id="result5"></p>
+<script>
+    function kiemtra5() {
+        let canhA = parseInt(document.getElementById("canha").value);
+        let canhB = parseInt(document.getElementById("canhb").value);
+        if (canhA <= 0 || isNaN(canhA)){
+            document.getElementById('result5').innerHTML="Nhập lại cạnh lớn hơn 0"
+        }else if (canhB <= 0 || isNaN(canhB)){
+            document.getElementById('result5').innerHTML="Nhập lại cạnh lớn hơn 0"
+        }else{
+            let dientichV = (canhA * canhB)/2 ;
+            document.getElementById('result5').innerHTML = "Diện tích hình tam giác là: " + dientichV;
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 6: Giải phương trình bậc 1. a*x+b=0</p>
+<label><input type="number" id="HeA" placeholder="Nhập hệ số a"></label>
+<label><input type="number" id="HeB" placeholder="Nhập hệ số b"></label>
+<button onclick="kiemTra6()">Kiểm tra</button>
+<p id="result6"></p>
+<script>
+    function kiemTra6() {
+        let hesoA = parseInt(document.getElementById("HeA").value);
+        let hesoB = parseInt(document.getElementById("HeB").value);
+        if (isNaN(hesoA) || isNaN(hesoB)) {
+            document.getElementById('result6').innerHTML = "bạn chưa nhập đủ"
+        }else if (hesoA === 0 || hesoB === 0){
+            document.getElementById('result6').innerHTML = "Phương trình vô số nhiệm"
+        }else if (hesoA === 0 || hesoB !== 0){
+            document.getElementById('result6').innerHTML = "Phương trình vô nghiệm"
+        }else {
+            let bac1 = -hesoB / hesoA;
+            document.getElementById('result6').innerHTML = "Phương trình có nghiệm là: " + bac1;
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện chuột</title>
+</head>
+<body>
+<form>
+    <img id="myImage" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" style = "width: 30%" alt="đây là ảnh quả bóng"/>
+    <p>Click button below to move the image to right</p>
+    <input type="button" value="Click me" onclick="moveRight()">
+</form>
+<script>
+    // tạo biến imgObj để lưu ảnh
+    //sử dụng hàm getElementById() để nhận được đối tượng DOM và sau đó gán cho biến imgObj
+    //tạo hàm init để khởi tạo imgObj mà chúng ta đã đặt vào vị trí và các thuộc tính còn lại
+    //tạo hàm moveRight() để tăng khoảng cách trái 10pixel. bạn cũng có thể đặt nó là giá trị âm để di chuyển sang trái
+    //gọi hàm init khi trình duyệt đã được tải lên đầu
+    //xác định onclick vào cho button
+    let imgObj = null;
+    imgObj = document.getElementById('myImage');
+    function init () {
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+    }
+    function moveRight(){
+        imgObj.style.left = parseFloat(imgObj.style.left) + 10 + 'px';
+    }
+    window.onload = init;
+
+
+</script>
+</body>
+</html>
