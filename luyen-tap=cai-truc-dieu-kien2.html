@@ -134,5 +134,165 @@ ft =m * 3.2808
     }
 
 </script>
+<br>
+<br>
+<br>
+<p>Bài 7: Giải phương trình bậc 2</p>
+<label><input type="number" id="nb1" placeholder="mời nhập số a"></label>
+<label><input type="number" id="nb2" placeholder="mời nhập số b"></label>
+<label><input type="number" id="nb3" placeholder="mời nhập số c"></label>
+<button onclick="kiemTra7()">Kiểm tra</button>
+<p id="result7"></p>
+<script>
+    function kiemTra7() {
+        let nba = parseInt(document.getElementById("nb1").value);
+        let nbb = parseInt(document.getElementById("nb2").value);
+        let nbc = parseInt(document.getElementById("nb3").value);
+        let text;
+        if(isNaN(nba) || isNaN(nbb) || isNaN(nbc)) {
+            text = "Hãy nhập đúng số a,b,c";
+            } else {
+            let delta = nbb * nbb - 4 * nba * nbc;
+            if (delta > 0) {
+                let x1 = (-nbb + Math.sqrt(delta)) / (2 * nba);
+                let x2 = (-nbb - Math.sqrt(delta)) / (2 * nba);
+                text = `Phương trình có 2 nghiệm phân biệt:<br>x₁ = ${x1}<br>x₂ = ${x2}`;
+            } else if (delta === 0) {
+                let x = -nbb / (2 * nba);
+                text = "Phương trình có nghiệm kép x = " + x;
+            } else {
+                text = "Phương trình vô nghiệm.";
+            }
+
+        }document.getElementById("result7").innerHTML = text;
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không.
+    Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.</p>
+<label><input type="number" id="tuoi" placeholder="nhập tuổi để kiểm tra"></label>
+<button onclick="kiemtra8()">Kiểm tra</button>
+<p id="result8"></p>
+<script>
+    function kiemtra8() {
+        let tuoi = parseInt(document.getElementById("tuoi").value);
+        if (tuoi > 0 && tuoi < 120) {
+            document.getElementById('result8').innerHTML= "Số bạn vừa nhập là: "+ tuoi + " tuổi";
+        }else
+            document.getElementById('result8').innerHTML= "Hãy nhập đúng số tuổi giới hạn 0 đến 120 tuổi";
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:
+
+    a,b,c > 0
+    a + b > c
+    b + c > a
+    a + c > b</p>
+<label><input type="number" id="tg1" placeholder="Nhập cạnh a"></label>
+<label><input type="number" id="tg2" placeholder="Nhập cạnh b"></label>
+<label><input type="number" id="tg3" placeholder="Nhập cạnh c"></label>
+<button onclick="kiemtra9()">Kiểm tra</button>
+<p id="result9"></p>
+<script>
+    function kiemtra9() {
+        let tg1 = parseInt(document.getElementById("tg1").value);
+        let tg2 = parseInt(document.getElementById("tg2").value);
+        let tg3 = parseInt(document.getElementById("tg3").value);
+        let text1;
+        if (isNaN(tg1) || isNaN(tg2) || isNaN(tg3)) {
+            text1 = "Nhập lại các cạnh";
+        }else if ( tg1<=0 || tg2<=0 || tg3<=0 ) {
+            text1 = "các cạnh phải lớn hơn 0"
+        }else if( tg1 + tg2 > tg3 && tg1 + tg3 > tg2 && tg2 + tg3 > tg1){
+            text1 = "đây là 3 cạnh của 1 tam giác";
+        }else
+            text1="Nhập lại 3 cạnh tam giác"
+        document.getElementById("result9").innerHTML = text1;
+    }
+</script>
+<br>
+<br>
+<br>
+<p>Bài 10: Viết chương trình tính giá điện.</p>
+<label><input type="number" id="gd" placeholder="Nhập số điện"></label>
+<button onclick="kiemtra10()">Kiểm tra</button>
+<p id="result10"></p>
+<script>
+    function kiemtra10() {
+        let gd = parseInt(document.getElementById("gd").value);
+        let text3;
+        if (isNaN(gd)) {
+            text3 = "Hãy nhập đúng số"
+        }else if (gd <200 && gd >= 0) {
+            text3 = gd * 2000;
+        }else if (gd > 1000 && gd < 500) {
+            text3 = gd * 3000;
+        }else if (gd > 5000) {
+            text3 = gd * 5000;
+        }else
+            text3="bạn hãy nhập đúng số điện"
+        document.getElementById("result10").innerHTML = "Cái giá phải trả: "+text3;
+    }
+</script>
+<br>
+<br>
+<br>
+<p>bài11: Viết chương trình tính thuế thu nhập cá nhân.</p>
+<label><input type="number" id="tnca" placeholder="Nhập thu nhập cá nhân zô"></label>
+<button onclick="kiemtra11()">Kiểm tra</button>
+<p id="result11"></p>
+<script>
+    function kiemtra11() {
+        let tnca = parseInt(document.getElementById("tnca").value);
+        let text4;
+        if (isNaN(tnca)) {
+            text4 = "mài định trốn thuế đúng không";
+        }else if(tnca <1000000){
+            text4 = "ít tiền thế còn đòi đóng thuế cơ á";
+        }else if(tnca > 1000000 && tnca < 10000000){
+            text4 = tnca / 5;
+        }else if(tnca > 10000000){
+            text4 = tnca / 10;
+        }else
+            text4 = "nhập lại thu nhập đi"
+        document.getElementById("result11").innerHTML = "Bạn phải trả tiền thuế nà"+ text4;
+    }
+</script>
+<br>
+<br>
+<br>
+<p>bài 12</p>
+<label>Nhập số tiền ban đầu: </label>
+<input type="number" id="tien" placeholder="VD: 1000000"><br><br>
+
+<label>Nhập số tháng gửi: </label>
+<input type="number" id="thang" placeholder="VD: 12"><br><br>
+
+<label>Nhập lãi suất hàng tháng (%): </label>
+<input type="number" id="laisuat" placeholder="VD: 1"><br><br>
+<button onclick="kiemtra12()">Kiểm tra</button>
+<p id="result12"></p>
+<script>
+    function kiemtra12() {
+        let tien = parseFloat(document.getElementById("tien").value);
+        let thang = parseInt(document.getElementById("thang").value);
+        let laiSuat = parseFloat(document.getElementById("laisuat").value) / 100;
+
+        if (isNaN(tien) || isNaN(thang) || isNaN(laiSuat)) {
+            document.getElementById("result12").innerText = "Vui lòng nhập đầy đủ và đúng thông tin.";
+            return;
+        }
+
+        let tongTien = tien * Math.pow(1 + laiSuat, thang);
+
+        document.getElementById("result12").innerText =
+            "Tổng tiền sau " + thang + " tháng là: " + tongTien.toFixed(2) + " VND";
+    }
+</script>
 </body>
 </html>
